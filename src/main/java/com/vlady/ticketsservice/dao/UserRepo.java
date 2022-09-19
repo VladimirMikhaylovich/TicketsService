@@ -1,2 +1,9 @@
-package com.vlady.ticketsservice.dao;public interface UserRepo {
+package com.vlady.ticketsservice.dao;
+
+import com.vlady.ticketsservice.models.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepo extends JpaRepository<User, Integer> {
 }
