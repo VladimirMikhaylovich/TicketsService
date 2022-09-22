@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: vlady
+Build-Jdk: Oracle OpenJDK version 18.0.2
+Implementation-Title: TicketsService
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.vlady
+Main-Class: ${start-class}
+
