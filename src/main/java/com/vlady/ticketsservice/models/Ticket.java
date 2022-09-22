@@ -14,12 +14,12 @@ public class Ticket {
     private Integer id;
 
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "plane_id")
     @JsonBackReference
     private Plane plane;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
      @JsonBackReference
     private User user;

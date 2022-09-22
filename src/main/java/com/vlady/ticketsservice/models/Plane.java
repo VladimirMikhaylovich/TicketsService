@@ -37,7 +37,6 @@ public class Plane {
     private boolean isDeleted;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "plane", fetch = FetchType.LAZY)
-    @JsonManagedReference
     private List<Ticket> ticketListPlane;
 
     public Plane() {
@@ -51,11 +50,6 @@ public class Plane {
         this.cityFrom = cityFrom;
         this.cityTo = cityTo;
         this.isDeleted = isDeleted;
-//        for(int i = 0; i<places; i++){
-//            Ticket ticket = new Ticket();
-//            ticketListPlane.add(ticket);
-//        }
-
     }
 
     public Integer getId() {

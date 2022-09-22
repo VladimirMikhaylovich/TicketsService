@@ -25,7 +25,6 @@ public class User {
     private Boolean isDeleted;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonManagedReference
     private List<Ticket> ticketListUser;
 
 
