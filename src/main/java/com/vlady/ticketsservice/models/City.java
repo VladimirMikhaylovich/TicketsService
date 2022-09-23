@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 
 @Entity
@@ -25,5 +26,6 @@ public class City {
 private String name;
     @Column(name = "numbers")
 private Integer numbers;
-
+    @Column(name = "city_day")
+   private LocalDate cityDay;
 }

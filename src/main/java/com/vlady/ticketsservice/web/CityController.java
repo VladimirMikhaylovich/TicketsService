@@ -4,8 +4,10 @@ package com.vlady.ticketsservice.web;
 import com.vlady.ticketsservice.models.City;
 import com.vlady.ticketsservice.services.ModelService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -26,9 +28,10 @@ public class CityController {
     public City addCity(@RequestBody City ciy){
         return (City) modelService.addNew(ciy);
     }
-    @PutMapping("/{id}/{name}/{numbers}")
-    public City changeCity(@PathVariable int id,@PathVariable String name, @PathVariable int numbers){
-        return modelService.updateIt(id, name, numbers);
+    @PutMapping("/{id}/{name}/{numbers}/{date}")
+    public City changeCity(@PathVariable int id, @PathVariable String name, @PathVariable int numbers, @PathVariable
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate date){
+        return modelService.updateIt(id, name, numbers, date);
     }
 //    @PutMapping("/")
 //    public City changeCity(@PathVariable int id){
