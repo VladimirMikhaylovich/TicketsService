@@ -13,8 +13,8 @@ public interface PlaneService {
     public Plane getPlane(int id);
     public Plane addPlane(Plane plane);
     public Plane updatePlane(int id, String name, Integer places,
-                             LocalDate depart, Duration duration,
-                             String cityFrom, String cityTo, boolean isDeleted);
+                             LocalDate depart, String cityFrom, String cityTo, boolean isDeleted);
+
     public Plane markPlaneDeleted(int id);
     public  List<Ticket>  getTicketsForPlane(int planId);
 

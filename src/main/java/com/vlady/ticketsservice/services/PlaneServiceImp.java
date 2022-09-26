@@ -49,8 +49,7 @@ private PlanesRepo planesRepo;
 
     @Override
     public Plane updatePlane(int id, String name, Integer places,
-                             LocalDate depart, Duration duration,
-                             String cityFrom, String cityTo, boolean isDeleted) {
+                             LocalDate depart, String cityFrom, String cityTo, boolean isDeleted) {
         Plane plane=null;
         Optional<Plane> optionalPlane =  planesRepo.findById(id);
         if(optionalPlane.isPresent())
@@ -58,7 +57,6 @@ private PlanesRepo planesRepo;
         plane.setName(name);
         plane.setPlaces(places);
         plane.setDepart(depart);
-        plane.setDuration(duration);
         plane.setCityFrom(cityFrom);
         plane.setCityTo(cityTo);
         plane.setDeleted(isDeleted);
@@ -84,7 +82,7 @@ private PlanesRepo planesRepo;
             return list;
         }
         return Collections.emptyList();
+            }
 
 
-    }
 }

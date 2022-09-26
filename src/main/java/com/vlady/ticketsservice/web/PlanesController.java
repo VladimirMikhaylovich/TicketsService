@@ -5,6 +5,7 @@ import com.vlady.ticketsservice.models.Plane;
 import com.vlady.ticketsservice.models.Ticket;
 import com.vlady.ticketsservice.services.PlaneService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
@@ -29,11 +30,12 @@ public class PlanesController {
     public Plane addPlane(@RequestBody Plane plane){
         return planeService.addPlane(plane);
     }
-    @PutMapping("/{id}/{name}/{places}/{depart}/{duration}/{cityFrom}/{cityTo}/{isDeleted}")
+    @PutMapping("/{id}/{name}/{places}/{depart}/{cityFrom}/{cityTo}/{isDeleted}")
+
     public Plane updatePlane(@PathVariable int id,@PathVariable String name,@PathVariable Integer places,
-                             @PathVariable LocalDate depart,@PathVariable Duration duration,
+                             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE ) LocalDate depart,
                              @PathVariable String cityFrom, String cityTo,@PathVariable boolean isDeleted){
-        return planeService.updatePlane(id, name, places, depart, duration, cityFrom, cityTo, isDeleted);
+        return planeService.updatePlane(id, name, places, depart, cityFrom, cityTo, isDeleted);
     }
 
     @PutMapping("/plane/delete/{id}")

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -28,10 +29,11 @@ public class CityController {
     public City addCity(@RequestBody City ciy){
         return (City) modelService.addNew(ciy);
     }
-    @PutMapping("/{id}/{name}/{numbers}/{date}")
+    @PutMapping("/{id}/{name}/{numbers}/{date}/{time}")
     public City changeCity(@PathVariable int id, @PathVariable String name, @PathVariable int numbers, @PathVariable
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate date){
-        return modelService.updateIt(id, name, numbers, date);
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE ) LocalDate date, @PathVariable Duration time){
+
+        return modelService.updateIt(id, name, numbers, date, time);
     }
 //    @PutMapping("/")
 //    public City changeCity(@PathVariable int id){

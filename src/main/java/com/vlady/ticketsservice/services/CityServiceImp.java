@@ -5,6 +5,8 @@ import com.vlady.ticketsservice.models.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -35,7 +37,7 @@ public class CityServiceImp implements ModelService<City> {
 
 
     @Override
-    public City updateIt(int id, String name, Integer numbers, LocalDate date) {
+    public City updateIt(int id, String name, Integer numbers, LocalDate date, Duration time) {
         City city = null;
         Optional<City> optional = cityRepo.findById(id);
         if(optional.isPresent())
@@ -43,6 +45,7 @@ public class CityServiceImp implements ModelService<City> {
         city.setName(name);
         city.setNumbers(numbers);
         city.setCityDay(date);
+        city.setTime(time);
        // String s = "City "+city.getName()+" is updated";
         return cityRepo.save(city);
     }
